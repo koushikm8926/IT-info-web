@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Compass,
   Layers,
@@ -79,7 +80,7 @@ export default function ConsultingPage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20">
+      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-xs font-semibold text-blue-300">
             <Link href="/" className="hover:underline">
@@ -88,27 +89,44 @@ export default function ConsultingPage() {
             &gt; IT Consulting
           </div>
 
-          <div className="max-w-3xl space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
-              IT Consulting
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              Innovexa provides strategic technology consulting to help
-              businesses plan, modernize, optimize, and scale with confidence.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a
-                href="#consulting-form"
-                className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md transition-all"
-              >
-                Discuss Your Requirements →
-              </a>
-              <a
-                href="#engagement-models"
-                className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm transition-all"
-              >
-                Book a Consultation
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                IT Consulting
+              </h1>
+              <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+                Innovexa provides strategic technology consulting to help
+                businesses plan, modernize, optimize, and scale with confidence.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href="#consulting-form"
+                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2"
+                >
+                  Discuss Your Requirements
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="#engagement-models"
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm transition-all"
+                >
+                  Book a Consultation
+                </a>
+              </div>
+            </div>
+
+            {/* 3D Isometric Consulting Architecture Image */}
+            <div className="lg:col-span-5 relative">
+              <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
+                <Image
+                  src="/images/hero-consulting.jpg"
+                  alt="Enterprise IT Consulting and Digital Transformation Architecture"
+                  width={700}
+                  height={500}
+                  priority
+                  className="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>

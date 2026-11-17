@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Code2,
   Layers,
@@ -10,7 +11,6 @@ import {
   Briefcase,
   Globe,
   ArrowRight,
-  CheckCircle2,
   Calendar,
   Cloud,
   Cpu,
@@ -22,6 +22,7 @@ import {
   Target,
   Award,
   ChevronRight,
+  Building2,
 } from "lucide-react";
 import { SITE_DATA } from "@/data/site-data";
 
@@ -29,7 +30,7 @@ export default function HomePage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-24 md:pb-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-20 md:pb-28">
         {/* Subtle geometric glowing background grids */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -50,7 +51,7 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
                 End-to-end IT services, expert consulting, talent solutions and
                 industry-focused training to help businesses and individuals grow
                 in a digital-first world.
@@ -74,47 +75,38 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Hero Graphic Mockup */}
+            {/* Right Hero Image Card (Building & Glass Overlay) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md shadow-2xl p-6 space-y-6">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-400" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <span className="w-3 h-3 rounded-full bg-green-400" />
+              <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl group">
+                <Image
+                  src="/images/hero-building.jpg"
+                  alt="Innovexa Systems Modern Headquarters Building"
+                  width={800}
+                  height={600}
+                  priority
+                  className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061737] via-transparent to-transparent opacity-80" />
+
+                {/* Floating Glassmorphic Badge */}
+                <div className="absolute top-4 right-4 bg-slate-950/70 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2 text-right">
+                  <div className="text-[10px] text-blue-400 font-bold uppercase tracking-wider">
+                    Innovexa HQ
                   </div>
-                  <span className="text-xs text-slate-400 font-mono">innovexasystems.in</span>
+                  <div className="text-xs font-semibold text-white">
+                    Bengaluru, India
+                  </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs text-blue-300 font-semibold uppercase">Enterprise Capability</div>
-                      <div className="text-sm font-bold text-white">Full-Spectrum IT & Talent Delivery</div>
-                    </div>
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-blue-500 text-white font-semibold">Active</span>
+                {/* Bottom Overlay Metric Bar */}
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-900/85 backdrop-blur-md border border-white/15 rounded-xl p-3.5 flex items-center justify-between text-xs">
+                  <div>
+                    <div className="font-bold text-white text-sm">Enterprise Tech Hub</div>
+                    <div className="text-[11px] text-slate-300">Consulting • Staffing • Edutech</div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-3.5 rounded-xl bg-slate-900/60 border border-white/10">
-                      <div className="text-2xl font-black text-blue-400">99.8%</div>
-                      <div className="text-xs text-slate-300">Project Delivery Rate</div>
-                    </div>
-                    <div className="p-3.5 rounded-xl bg-slate-900/60 border border-white/10">
-                      <div className="text-2xl font-black text-sky-400">500+</div>
-                      <div className="text-xs text-slate-300">Talent Placed & Trained</div>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0">
-                      <GraduationCap className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-white">Next Edutech Cohort Starting Soon</div>
-                      <div className="text-[11px] text-slate-300">Java, Python & DevOps Masterclasses</div>
-                    </div>
-                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-blue-600 text-white font-bold text-[10px] uppercase tracking-wider">
+                    Verified
+                  </span>
                 </div>
               </div>
             </div>
@@ -169,16 +161,16 @@ export default function HomePage() {
 
       {/* 3. ABOUT INNOVEXA SYSTEMS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block">
               About Innovexa Systems
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-snug">
               Your Technology Partner for Growth and Opportunities
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               Innovexa Systems is a multi-vertical technology company delivering
               IT services, consulting, staffing and technology education. We
               help businesses build, scale and optimize their technology, while
@@ -188,36 +180,41 @@ export default function HomePage() {
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
               >
                 Know More About Us
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
-          {/* Middle / Reception Card */}
-          <div className="lg:col-span-3">
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-gradient-to-tr from-slate-900 to-blue-950 p-6 text-white text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-blue-600 mx-auto flex items-center justify-center shadow-lg">
-                <span className="font-black text-2xl tracking-wider">IX</span>
+          {/* Middle / Reception Photo Card */}
+          <div className="lg:col-span-4">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+              <Image
+                src="/images/office-reception.jpg"
+                alt="Innovexa Systems Modern Office Reception Lobby"
+                width={600}
+                height={400}
+                className="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
+                <div className="text-white">
+                  <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block">
+                    Innovexa Tech Campus
+                  </span>
+                  <p className="text-xs font-semibold text-white">
+                    Bengaluru Headquarters &amp; Learning Center
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-black tracking-wide">INNOVEXA</h3>
-                <span className="text-xs text-blue-400 font-semibold tracking-widest uppercase">
-                  HEADQUARTERS
-                </span>
-              </div>
-              <p className="text-xs text-slate-300">
-                Bengaluru, Karnataka, India • Serving Clients Nationwide & Internationally
-              </p>
             </div>
           </div>
 
           {/* Right Column: Vision, Mission, Values */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-4">
             <div className="p-4 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-white hover:shadow-md transition-all space-y-1">
-              <div className="flex items-center gap-2 text-blue-600 font-bold text-sm">
+              <div className="flex items-center gap-2 text-blue-600 font-bold text-xs">
                 <Target className="w-4 h-4" />
                 Our Vision
               </div>
@@ -228,7 +225,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-white hover:shadow-md transition-all space-y-1">
-              <div className="flex items-center gap-2 text-sky-600 font-bold text-sm">
+              <div className="flex items-center gap-2 text-sky-600 font-bold text-xs">
                 <TrendingUp className="w-4 h-4" />
                 Our Mission
               </div>
@@ -239,7 +236,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-4 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-white hover:shadow-md transition-all space-y-1">
-              <div className="flex items-center gap-2 text-indigo-600 font-bold text-sm">
+              <div className="flex items-center gap-2 text-indigo-600 font-bold text-xs">
                 <Award className="w-4 h-4" />
                 Our Values
               </div>
@@ -633,10 +630,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. BOTTOM BANNER */}
+      {/* 9. BOTTOM BANNER (WITH TEAM PHOTO) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white p-8 md:p-12 relative shadow-2xl">
-          <div className="relative z-10 max-w-2xl space-y-4">
+        <div className="rounded-3xl overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 items-center">
+          {/* Left: Collaboration Photo */}
+          <div className="lg:col-span-5 h-64 sm:h-80 lg:h-full relative overflow-hidden">
+            <Image
+              src="/images/team-collaboration.jpg"
+              alt="Innovexa Software Engineering Team"
+              width={700}
+              height={500}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-950/90 hidden lg:block" />
+          </div>
+
+          {/* Right: Content & CTAs */}
+          <div className="lg:col-span-7 p-8 md:p-12 space-y-4">
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
               Let&apos;s Discuss Your Requirements
             </h2>
@@ -649,10 +659,10 @@ export default function HomePage() {
                 href="/contact"
                 className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md transition-all"
               >
-                Submit an Enquiry
+                Submit an Enquiry →
               </Link>
               <Link
-                href="/contact#direct"
+                href="/contact"
                 className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all"
               >
                 Contact Our Team

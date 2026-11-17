@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Code2,
   Layers,
@@ -23,7 +24,7 @@ export default function AboutPage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20">
+      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-20 md:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-xs font-semibold text-blue-300">
             <Link href="/" className="hover:underline">
@@ -32,14 +33,28 @@ export default function AboutPage() {
             &gt; About Us
           </div>
 
-          <div className="max-w-3xl space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              About Us
-            </h1>
-            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              A technology company delivering IT services, consulting, talent
-              solutions and quality education to build a future-ready workforce.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                About Us
+              </h1>
+              <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+                A technology company delivering IT services, consulting, talent
+                solutions and quality education to build a future-ready workforce.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
+                <Image
+                  src="/images/hero-building.jpg"
+                  alt="Innovexa Systems Modern Headquarters"
+                  width={600}
+                  height={400}
+                  priority
+                  className="w-full h-64 sm:h-72 object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -181,8 +196,8 @@ export default function AboutPage() {
       {/* 4. WHAT WE DO */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5 space-y-4">
               <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                 What We Do
               </h3>
@@ -191,6 +206,15 @@ export default function AboutPage() {
                 learning solutions across industries, helping businesses,
                 professionals and students achieve their goals.
               </p>
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                <Image
+                  src="/images/office-reception.jpg"
+                  alt="Innovexa Systems Modern Office"
+                  width={600}
+                  height={350}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
             </div>
 
             <div className="lg:col-span-7 space-y-3">
@@ -201,9 +225,9 @@ export default function AboutPage() {
                 "Offer quality education and industry-aligned technology training.",
                 "Support long-term success through reliable services and continuous learning.",
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200">
+                <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span className="text-xs font-medium text-slate-800">{item}</span>
+                  <span className="text-xs font-semibold text-slate-800">{item}</span>
                 </div>
               ))}
             </div>
