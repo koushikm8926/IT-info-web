@@ -3,30 +3,90 @@
 @layer base {
   :root {
     --primary: #0052ff;
-    --primary-dark: #091e42;
+    --primary-hover: #0045db;
+    --primary-dark: #0a192f;
+    --navy-950: #061226;
+    --navy-900: #0a1b38;
+    --navy-800: #102a54;
     --background: #ffffff;
     --foreground: #0f172a;
     --muted: #f8fafc;
-    --muted-foreground: #475569;
+    --muted-foreground: #64748b;
     --border: #e2e8f0;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
   }
 }
 
-.brand-gradient {
-  background: linear-gradient(135deg, #091e42 0%, #0052ff 100%);
+/* Glassmorphism and ambient glows */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-.brand-gradient-soft {
-  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+.glass-panel-dark {
+  background: rgba(10, 27, 56, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.brand-gradient-card {
-  background: linear-gradient(135deg, #f0f6ff 0%, #e6efff 100%);
+.enterprise-hero-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 82, 255, 0.18) 0%, rgba(6, 18, 38, 0) 70%);
+}
+
+.blue-glow {
+  box-shadow: 0 0 40px -10px rgba(0, 82, 255, 0.35);
+}
+
+.card-subtle-glow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-subtle-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(0, 82, 255, 0.12);
+  border-color: rgba(0, 82, 255, 0.3);
+}
+
+/* Animated subtle pulse for badges */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.pulse-badge {
+  animation: subtlePulse 2.5s infinite ease-in-out;
 }

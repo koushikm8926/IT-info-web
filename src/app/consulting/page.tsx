@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
 import {
   Compass,
   Layers,
@@ -282,24 +284,35 @@ export default function ConsultingPage() {
               ))}
             </div>
 
-            <div className="lg:col-span-8 rounded-2xl bg-white border border-slate-200 p-6 md:p-8 shadow-xs space-y-6">
-              <h3 className="text-xl font-bold text-slate-900">
-                {tabs[activeTab].heading}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {tabs[activeTab].description}
-              </p>
+            <div className="lg:col-span-8 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="rounded-2xl bg-white border border-slate-200 p-6 md:p-8 shadow-xs space-y-6"
+                >
+                  <h3 className="text-xl font-bold text-slate-900">
+                    {tabs[activeTab].heading}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {tabs[activeTab].description}
+                  </p>
 
-              <div className="space-y-3 pt-2">
-                {tabs[activeTab].points.map((point, pIdx) => (
-                  <div key={pIdx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs text-slate-700 font-medium">
-                      {point}
-                    </span>
+                  <div className="space-y-3 pt-2">
+                    {tabs[activeTab].points.map((point, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                        <span className="text-xs text-slate-700 font-medium">
+                          {point}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
