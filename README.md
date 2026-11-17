@@ -1,5 +1,8 @@
 # Innovexa Systems — Modern Web Platform
 
+> 🌐 **Live Production Website**: [https://innovexa-systems.vercel.app](https://innovexa-systems.vercel.app)
+> 🚀 **Vercel Project Dashboard**: [https://vercel.com/koushikm8926s-projects/innovexa-systems](https://vercel.com/koushikm8926s-projects/innovexa-systems)
+
 A high-performance enterprise web application for **Innovexa Systems**, covering IT Services, IT Consulting, Staffing & Recruitment, and Innovexa Edutech.
 
 Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Lucide Icons**.
