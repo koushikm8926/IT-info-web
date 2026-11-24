@@ -19,12 +19,13 @@ import {
   Send,
   Zap,
 } from "lucide-react";
+import { HeroReveal } from "@/components/motion/HeroReveal";
 
 export default function AboutPage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-20 md:pb-28">
+      <HeroReveal className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-24 md:pt-20 md:pb-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-xs font-semibold text-blue-300">
             <Link href="/" className="hover:underline">
@@ -57,10 +58,10 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </HeroReveal>
 
       {/* 2. OUR COMPANY OVERVIEW & 4 DIVISIONS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
         <div className="rounded-2xl bg-white border border-slate-200 p-8 shadow-lg space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-3">

@@ -17,6 +17,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { SITE_DATA } from "@/data/site-data";
+import { HeroReveal } from "@/components/motion/HeroReveal";
 
 export default function ContactPage() {
   const [division, setDivision] = useState("IT Services");
@@ -26,7 +27,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20">
+      <HeroReveal className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-xs font-semibold text-blue-300">
             <Link href="/" className="hover:underline">
@@ -44,10 +45,10 @@ export default function ContactPage() {
             </p>
           </div>
         </div>
-      </section>
+      </HeroReveal>
 
       {/* 2. MAIN FORM & CONTACT DETAILS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Form Box */}
           <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-lg space-y-6">

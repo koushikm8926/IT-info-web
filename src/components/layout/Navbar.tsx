@@ -28,6 +28,7 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { SITE_DATA } from "@/data/site-data";
 
 export function Navbar() {
@@ -40,7 +41,7 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -286,10 +287,10 @@ export function Navbar() {
                   }`}
                 >
                   IT Services
-                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />
+                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 group-focus-within:rotate-180 transition-[rotate] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 </Link>
 
-                <div className="absolute left-0 top-full hidden group-hover:block w-[520px] pt-2 transition-all">
+                <div className="absolute left-0 top-full invisible opacity-0 translate-y-2 scale-[0.98] origin-top-left group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 w-[520px] pt-2 transition-[opacity,translate,scale,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 grid grid-cols-2 gap-2">
                     {servicesMenu.map((item) => (
                       <Link
@@ -338,10 +339,10 @@ export function Navbar() {
                   }`}
                 >
                   IT Consulting
-                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />
+                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 group-focus-within:rotate-180 transition-[rotate] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 </Link>
 
-                <div className="absolute left-0 top-full hidden group-hover:block w-[460px] pt-2 transition-all">
+                <div className="absolute left-0 top-full invisible opacity-0 translate-y-2 scale-[0.98] origin-top-left group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 w-[460px] pt-2 transition-[opacity,translate,scale,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 space-y-2">
                     {consultingMenu.map((item) => (
                       <Link
@@ -381,10 +382,10 @@ export function Navbar() {
                   }`}
                 >
                   IT Staffing
-                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />
+                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 group-focus-within:rotate-180 transition-[rotate] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 </Link>
 
-                <div className="absolute left-0 top-full hidden group-hover:block w-[460px] pt-2 transition-all">
+                <div className="absolute left-0 top-full invisible opacity-0 translate-y-2 scale-[0.98] origin-top-left group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 w-[460px] pt-2 transition-[opacity,translate,scale,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 space-y-2">
                     {staffingMenu.map((item) => (
                       <Link
@@ -424,10 +425,10 @@ export function Navbar() {
                   }`}
                 >
                   Innovexa Edutech
-                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />
+                  <ChevronDown className="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 group-focus-within:rotate-180 transition-[rotate] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 </Link>
 
-                <div className="absolute -left-12 top-full hidden group-hover:block w-[500px] pt-2 transition-all">
+                <div className="absolute -left-12 top-full invisible opacity-0 translate-y-2 scale-[0.98] origin-top-left group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 w-[500px] pt-2 transition-[opacity,translate,scale,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 space-y-2">
                     <div className="px-3 py-1 text-[11px] font-bold text-amber-600 uppercase tracking-wider flex items-center justify-between">
                       <span>Live Project-Based Programs</span>
@@ -477,7 +478,7 @@ export function Navbar() {
             <div className="hidden sm:flex items-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-full shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 transition-all active:scale-95 gap-1.5"
+                className="btn-sheen inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-full shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 transition-[box-shadow,scale] duration-300 active:scale-[0.96] gap-1.5"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -490,8 +491,20 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-slate-100 transition-colors"
                 aria-label="Toggle Navigation Menu"
+                aria-expanded={mobileMenuOpen}
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={mobileMenuOpen ? "close" : "open"}
+                    initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
+                    className="block"
+                  >
+                    {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  </motion.span>
+                </AnimatePresence>
               </button>
             </div>
           </div>
@@ -499,10 +512,25 @@ export function Navbar() {
       </div>
 
       {/* Mobile Drawer */}
+      <AnimatePresence>
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl max-h-[85vh] overflow-y-auto">
-          {SITE_DATA.navigation.map((item) => (
-            <div key={item.label} className="border-b border-slate-100 pb-2">
+        <motion.div
+          key="mobile-drawer"
+          data-lenis-prevent
+          initial={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0.6 }}
+          animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
+          exit={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl max-h-[85vh] overflow-y-auto"
+        >
+          {SITE_DATA.navigation.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 + i * 0.035, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="border-b border-slate-100 pb-2"
+            >
               <Link
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
@@ -528,7 +556,7 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
           <div className="pt-2">
             <Link
@@ -539,8 +567,9 @@ export function Navbar() {
               Contact Us →
             </Link>
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 }

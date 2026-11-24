@@ -17,6 +17,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { SITE_DATA } from "@/data/site-data";
+import { HeroReveal } from "@/components/motion/HeroReveal";
 
 export default function StaffingPage() {
   const [hiringSubmitted, setHiringSubmitted] = useState(false);
@@ -24,7 +25,7 @@ export default function StaffingPage() {
   return (
     <div className="space-y-20 pb-20">
       {/* 1. HERO SECTION */}
-      <section className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20">
+      <HeroReveal className="bg-gradient-to-b from-[#061737] via-[#092252] to-[#04122d] text-white pt-16 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-xs font-semibold text-blue-300">
             <Link href="/" className="hover:underline">
@@ -64,10 +65,10 @@ export default function StaffingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </HeroReveal>
 
       {/* 2. STATS & VALUE HIGHLIGHTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-10">
         <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[

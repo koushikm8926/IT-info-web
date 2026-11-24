@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MotionProviders } from "@/components/motion/MotionProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,12 +39,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <MotionProviders>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MotionProviders>
+        <noscript>
+          <style>{`.hero-reveal :is(:has(> h1) > *, :has(> img), [data-hero-extra]){opacity:1!important}`}</style>
+        </noscript>
       </body>
     </html>
   );
